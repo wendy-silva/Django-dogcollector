@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.contrib.auth.models import User
 
 MEALS = (
     ('B', 'Breakfast'),
@@ -21,6 +22,7 @@ class Dog(models.Model):
     description = models.TextField(max_length=250)
     age = models.IntegerField()
     toys = models.ManyToManyField(Toy)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   # new code below
     def __str__(self):
